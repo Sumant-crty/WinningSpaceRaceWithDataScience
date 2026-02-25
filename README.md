@@ -6,7 +6,7 @@ By applying data wrangling, exploratory data analysis (EDA), visualization, and 
 
 📂 Repository Structure
 
-SpaceXAPIDataWrangling.ipynb → Collecting and cleaning SpaceX API data
+SpaceXAPIDataCollection.ipynb → Collecting and cleaning SpaceX API data
 
 Falcon9DataWrangling.ipynb → Preparing Falcon 9 dataset for analysis
 

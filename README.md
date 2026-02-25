@@ -7,8 +7,9 @@ By applying data wrangling, exploratory data analysis (EDA), visualization, and 
 📂 Repository Structure
 
 jupyter-labs-spacex-data-collection-api.ipynb → Collecting and cleaning SpaceX API data
+jupyter-labs-webscraping.ipynb - 
 
-Falcon9DataWrangling.ipynb → Preparing Falcon 9 dataset for analysis
+labs-jupyter-spacex-DataWrangling.ipynb → Preparing Falcon 9 dataset for analysis
 
 EDAFalcon9.ipynb → Exploratory Data Analysis (EDA) with visualizations
 

@@ -16,7 +16,7 @@ FalconBestMethodForPrediction.ipynb → Machine Learning models for landing pred
 
 falcan9visualization.ipynb – Perform exploratory Data Analysis and Feature Engineering using Pandas and Matplotlib
 
-##🛠️ Technologies Used
+#🛠️ Technologies Used
 Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly)
 
 Jupyter Notebook for interactive coding

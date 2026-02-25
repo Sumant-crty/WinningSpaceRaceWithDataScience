@@ -5,6 +5,7 @@ The project focuses on predicting the success of Falcon 9 first stage landings u
 By applying data wrangling, exploratory data analysis (EDA), visualization, and machine learning models, we aim to provide insights into SpaceX’s reusable rocket strategy.
 
 📂 Repository Structure
+
 SpaceXAPIDataWrangling.ipynb → Collecting and cleaning SpaceX API data
 
 Falcon9DataWrangling.ipynb → Preparing Falcon 9 dataset for analysis

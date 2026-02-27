@@ -70,7 +70,7 @@ Based on the analysis, the project concludes that launch costs can be brought do
 
 ## 📂 Repository Structure
 Repository Files & Purpose
-File	Purpose
+File	            Purpose      
 Plotlyexample.ipynb	Demonstrates interactive visualizations using Plotly, likely for launch data dashboards.
 README.md	Project overview, objectives, methodology, insights, and conclusions.
 SpaceX_Machine Learning Prediction_Part_5.ipynb	Contains machine learning model training and evaluation for predicting Falcon 9 landing success.

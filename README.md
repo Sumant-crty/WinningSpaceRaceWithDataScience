@@ -1,71 +1,90 @@
-# WinningSpaceRaceWithDataScience
-📌 Project Overview
-This repository contains the final project for the Applied Data Science Capstone (Coursera).
-The project focuses on predicting the success of Falcon 9 first stage landings using SpaceX launch data.
-By applying data wrangling, exploratory data analysis (EDA), visualization, and machine learning models, we aim to provide insights into SpaceX’s reusable rocket strategy.
+# 🚀 Winning Space Race with Data Science
 
-📂 Repository Structure
+## 📌 Project Overview
+This project explores how **data science** can be applied to predict the success of SpaceX’s **Falcon 9 first stage landings** and estimate launch costs. By leveraging public SpaceX data, we build dashboards and train machine learning models to support strategic decisions in aerospace.
 
-jupyter-labs-spacex-data-collection-api.ipynb → Collecting and cleaning SpaceX API data
-jupyter-labs-webscraping.ipynb - 
+---
 
-labs-jupyter-spacex-DataWrangling.ipynb → Preparing Falcon 9 dataset for analysis
+## 🎯 Objectives
+- Predict whether Falcon 9’s first stage will land successfully.
+- Estimate launch costs using public SpaceX data.
+- Build interactive dashboards and train machine learning models to support strategic decisions.
 
-EDAFalcon9.ipynb → Exploratory Data Analysis (EDA) with visualizations
+---
 
-FalconBestMethodForPrediction.ipynb → Machine Learning models for landing prediction
+## 📊 Data Collection & Preparation
+- Data sourced from **SpaceX API** and web scraping.
+- Performed **data wrangling** to clean and structure datasets.
+- Conducted **Exploratory Data Analysis (EDA)** to identify correlations and patterns.
 
-falcan9visualization.ipynb – Perform exploratory Data Analysis and Feature Engineering using Pandas and Matplotlib
+---
 
-#🛠️ Technologies Used
-Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly)
+## 🔍 Key Insights
+- **Launch site** and **payload mass** are strong predictors of landing success.
+- **Reusable rockets** significantly reduce launch costs, giving SpaceX a competitive edge.
+- Heavier payloads and certain orbits lower the probability of successful landings.
 
-Jupyter Notebook for interactive coding
+---
 
-APIs & Web Scraping for SpaceX data collection
+## 🤖 Machine Learning Models
+We applied and compared multiple models:
+- Logistic Regression
+- Decision Trees
+- K-Nearest Neighbors (KNN)
+- Support Vector Machines (SVM)
 
-Machine Learning Models: Logistic Regression, Decision Trees, SVM, KNN
+**Results:**  
+- Models achieved strong predictive accuracy.  
+- Decision Trees provided interpretability, while SVM and KNN offered competitive performance.  
 
-##🎯 Objectives
-Perform data wrangling on SpaceX API and Falcon 9 dataset.
+---
 
-Conduct EDA to identify patterns and correlations.
+## 📈 Deliverables
+- Jupyter Notebooks for:
+  - Data Wrangling
+  - Exploratory Data Analysis
+  - Machine Learning Models
+- Dashboards for visualization and strategic insights.
+- Final report summarizing findings and model comparisons.
 
-Build predictive models to estimate Falcon 9 landing success.
+---
 
-Compare model performance and highlight the best approach.
+## 📝 Conclusion
+This project demonstrates that **data science can effectively predict Falcon 9 landing success** and estimate launch costs. It highlights the importance of **reusable rockets** in lowering costs and shows how **machine learning can support aerospace innovation**.
+Project’s Cost Estimation
+The project uses payload mass and landing success predictions to estimate costs.
 
-##📊 Key Insights
-Reusable rockets significantly reduce launch costs.
+Reusable Falcon 9 rockets drastically reduce costs compared to expendable rockets.
 
-Certain launch sites and payload masses strongly influence landing success.
+Based on the analysis, the project concludes that launch costs can be brought down to around $30–50 million per launch when reusability is factored in, compared to traditional expendable systems that often exceed $100 million.
 
-Machine learning models can predict landing outcomes with good accuracy.
+---
 
-##🚀 How to Run
-Clone the repository:
+## 🛠️ Tech Stack
+- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
+- Jupyter Notebooks
+- APIs & Web Scraping
+- Data Visualization Dashboards
 
-bash
-git clone https://github.com/Sumant-crty/WinningSpaceRaceWithDataScience.git
-Navigate into the project folder:
+---
 
-bash
-cd WinningSpaceRaceWithDataScience
-Open notebooks in Jupyter/Colab:
+## 📂 Repository Structure
+Repository Files & Purpose
+File	Purpose
+Plotlyexample.ipynb	Demonstrates interactive visualizations using Plotly, likely for launch data dashboards.
+README.md	Project overview, objectives, methodology, insights, and conclusions.
+SpaceX_Machine Learning Prediction_Part_5.ipynb	Contains machine learning model training and evaluation for predicting Falcon 9 landing success.
+edadataviz.ipynb	Exploratory Data Analysis (EDA) and visualization of SpaceX launch data.
+jupyter-labs-eda-sql-coursera_sqllite.ipynb	SQL-based EDA using SQLite, probably part of Coursera labs.
+jupyter-labs-spacex-data-collection-api.ipynb	Collects SpaceX launch data via API calls.
+jupyter-labs-webscraping.ipynb	Scrapes SpaceX launch data from web sources.
+lab_jupyter_launch_site_location.ipynb	Analyzes launch site locations and their impact on landing success.
+labs-jupyter-spacex-Data wrangling.ipynb	Data cleaning and preparation (wrangling) for analysis.
+spacex_launch_dash.csv	Dataset used for dashboards and machine learning models.
 
-bash
-jupyter notebook
-Run each notebook sequentially for full workflow.
 
-##📌 Deliverables
-Data Wrangling notebooks
+---
 
-EDA notebook
-
-Machine Learning notebook with model comparison
-
-Final report summarizing findings
-
-#📜 License
-This project is for educational purposes under  Applied Data Science Capstone.
-Feel free to fork and experiment, but please cite appropriately.
+## 👨‍💻 Author
+Developed by **Sumant**  
+Passionate about data science, machine learning, and aerospace innovation.

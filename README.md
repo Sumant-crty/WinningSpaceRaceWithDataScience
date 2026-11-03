@@ -36,9 +36,26 @@ All four models make the same predictions on the test set: every successful land
   <img src="images/success_rate_by_orbit.png" width="49%" alt="Landing success rate by orbit type">
 </p>
 
-- **Launch site:** CCAFS SLC-40 hosts most launches (55 of 90). VAFB SLC-4E never launched payloads above 10,000 kg.
+- **Launch site:** CCAFS SLC-40 hosts most launches (55 of 90); KSC LC-39A has the highest success rate. VAFB SLC-4E never launched payloads above 10,000 kg.
 - **Site location:** launch sites sit close to the coastline (~0.6 km from CCAFS LC-40), railways and highways for logistics, and well away from cities (~23 km to Titusville) for safety.
 - **First successful ground-pad landing:** 22 December 2015.
+
+## Interactive dashboard and map
+
+The Plotly Dash app shows the share of successful launches by site and lets you filter payload mass vs. landing outcome by site and booster version. The Folium map measures each launch site's distance to nearby infrastructure.
+
+<p>
+  <img src="images/dashboard_success_by_site.png" width="49%" alt="Dashboard pie chart of successful launches by site">
+  <img src="images/dashboard_payload_vs_outcome.png" width="49%" alt="Dashboard scatter chart of payload mass vs landing outcome">
+</p>
+<p>
+  <img src="images/folium_launch_site_distances.png" width="60%" alt="Folium map of CCAFS LC-40 with distances to coastline, railway and highway">
+</p>
+
+## Presentations
+
+- **[Portfolio summary (11 slides, PDF)](report/falcon9-landing-prediction-portfolio.pdf):** the short version for a quick read ([.pptx](report/falcon9-landing-prediction-portfolio.pptx))
+- **[Full capstone report (48 slides, PDF)](report/winning-space-race-with-data-science.pdf):** every query, chart and map in detail ([.pptx](report/winning-space-race-with-data-science.pptx))
 
 ## Project structure
 
@@ -56,12 +73,11 @@ All four models make the same predictions on the test set: every successful land
 ```
 ├── notebooks/        # analysis pipeline, run in order 01 → 08
 ├── dashboard/        # standalone Dash app + its dataset
-├── images/           # charts used in this README
-├── report/           # final presentation (PDF)
+├── images/           # charts and screenshots used in this README
+├── report/           # presentations (PDF + PowerPoint)
 └── requirements.txt
 ```
 
-The final presentation is in [report/winning-space-race-with-data-science.pdf](report/winning-space-race-with-data-science.pdf).
 
 ## Run it locally
 

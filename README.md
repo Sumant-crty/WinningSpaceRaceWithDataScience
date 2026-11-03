@@ -1,90 +1,84 @@
-# 🚀 Winning Space Race with Data Science
+# Winning Space Race with Data Science
 
-## 📌 Project Overview
-This project explores how **data science** can be applied to predict the success of SpaceX’s **Falcon 9 first stage landings** and estimate launch costs. By leveraging public SpaceX data, we build dashboards and train machine learning models to support strategic decisions in aerospace.
+Predicting whether a SpaceX Falcon 9 first stage will land successfully, using launch data collected from the SpaceX REST API and Wikipedia.
 
----
+SpaceX lists a Falcon 9 launch at about $62M, against $165M+ for other providers; most of that saving comes from reusing the first stage. If we can predict whether the first stage will land, we can estimate the cost of a launch, which is useful for a company bidding against SpaceX.
 
-## 🎯 Objectives
-- Predict whether Falcon 9’s first stage will land successfully.
-- Estimate launch costs using public SpaceX data.
-- Build interactive dashboards and train machine learning models to support strategic decisions.
+> This is my capstone project for the **IBM Data Science Professional Certificate** (Coursera). The notebook structure and datasets come from the course; the data collection, analysis, dashboard and modelling code is my own work.
 
----
+## Results at a glance
 
-## 📊 Data Collection & Preparation
-- Data sourced from **SpaceX API** and web scraping.
-- Performed **data wrangling** to clean and structure datasets.
-- Conducted **Exploratory Data Analysis (EDA)** to identify correlations and patterns.
+- **Dataset:** 90 Falcon 9 launches (2010–2020), 3 launch sites, 11 orbit types. Overall landing success rate: **66.7%**.
+- **Best model:** all four classifiers reach **83.3% test accuracy**. The decision tree has the highest 10-fold cross-validation accuracy (**88.8%**).
+- **Main limitation:** the test set has only 18 launches, so one prediction moves accuracy by ~5.6 points. The test set cannot separate the models; see the "Results and limitations" section of [notebook 08](notebooks/08_machine_learning_prediction.ipynb).
 
----
+| Model | CV accuracy (10-fold, train) | Test accuracy (n=18) |
+|---|---|---|
+| Logistic Regression | 0.846 | 0.833 |
+| Support Vector Machine | 0.848 | 0.833 |
+| Decision Tree | **0.888** | 0.833 |
+| K-Nearest Neighbors | 0.848 | 0.833 |
 
-## 🔍 Key Insights
-- **Launch site** and **payload mass** are strong predictors of landing success.
-- **Reusable rockets** significantly reduce launch costs, giving SpaceX a competitive edge.
-- Heavier payloads and certain orbits lower the probability of successful landings.
+All four models make the same predictions on the test set: every successful landing is caught (12/12), and the only errors are 3 false positives, failed landings predicted as successes.
 
----
+<p>
+  <img src="images/model_comparison.png" width="58%" alt="Test accuracy and CV score per model">
+  <img src="images/confusion_matrix.png" width="38%" alt="Confusion matrix on the test set">
+</p>
 
-## 🤖 Machine Learning Models
-We applied and compared multiple models:
-- Logistic Regression
-- Decision Trees
-- K-Nearest Neighbors (KNN)
-- Support Vector Machines (SVM)
+## Key findings
 
-**Results:**  
-- Models achieved strong predictive accuracy.  
-- Decision Trees provided interpretability, while SVM and KNN offered competitive performance.  
+- **Experience matters:** no first stage landed from 2010 to 2013; the success rate then rose to ~83% in 2017, dipped to ~61% in 2018 and reached ~90% in 2019. Early CCAFS flights account for most failures.
+- **Orbit matters:** among orbits with enough launches, VLEO (~86%) and LEO (~71%) do best and GTO is the weakest (~52%). Heavy payloads land more often on Polar, LEO and ISS missions.
 
----
+<p>
+  <img src="images/yearly_success_trend.png" width="49%" alt="Landing success rate by year">
+  <img src="images/success_rate_by_orbit.png" width="49%" alt="Landing success rate by orbit type">
+</p>
 
-## 📈 Deliverables
-- Jupyter Notebooks for:
-  - Data Wrangling
-  - Exploratory Data Analysis
-  - Machine Learning Models
-- Dashboards for visualization and strategic insights.
-- Final report summarizing findings and model comparisons.
+- **Launch site:** CCAFS SLC-40 hosts most launches (55 of 90). VAFB SLC-4E never launched payloads above 10,000 kg.
+- **Site location:** launch sites sit close to the coastline (~0.6 km from CCAFS LC-40), railways and highways for logistics, and well away from cities (~23 km to Titusville) for safety.
+- **First successful ground-pad landing:** 22 December 2015.
 
----
+## Project structure
 
-## 📝 Conclusion
-This project demonstrates that **data science can effectively predict Falcon 9 landing success** and estimate launch costs. It highlights the importance of **reusable rockets** in lowering costs and shows how **machine learning can support aerospace innovation**.
-Project’s Cost Estimation
-The project uses payload mass and landing success predictions to estimate costs.
+| Step | Notebook | What it does |
+|---|---|---|
+| 1 | [01_data_collection_api](notebooks/01_data_collection_api.ipynb) | Pulls launch, rocket, payload and core data from the SpaceX API and resolves IDs into features |
+| 2 | [02_data_collection_webscraping](notebooks/02_data_collection_webscraping.ipynb) | Scrapes the Falcon 9 launch tables from Wikipedia with BeautifulSoup |
+| 3 | [03_data_wrangling](notebooks/03_data_wrangling.ipynb) | Handles missing values and creates the binary `Class` landing label |
+| 4 | [04_eda_sql](notebooks/04_eda_sql.ipynb) | Exploratory analysis with SQL (SQLite) |
+| 5 | [05_eda_visualization](notebooks/05_eda_visualization.ipynb) | Visual EDA (Seaborn/Matplotlib) and one-hot feature engineering |
+| 6 | [06_launch_site_analysis_folium](notebooks/06_launch_site_analysis_folium.ipynb) | Interactive Folium maps of launch sites, outcomes and proximity distances |
+| 7 | [07_dashboard_plotly_dash](notebooks/07_dashboard_plotly_dash.ipynb) | Plotly Dash dashboard: success by site and payload vs. outcome |
+| 8 | [08_machine_learning_prediction](notebooks/08_machine_learning_prediction.ipynb) | Logistic regression, SVM, decision tree and KNN with GridSearchCV |
 
-Reusable Falcon 9 rockets drastically reduce costs compared to expendable rockets.
+```
+├── notebooks/        # analysis pipeline, run in order 01 → 08
+├── dashboard/        # standalone Dash app + its dataset
+├── images/           # charts used in this README
+├── report/           # final presentation (PDF)
+└── requirements.txt
+```
 
-Based on the analysis, the project concludes that launch costs can be brought down to around $30–50 million per launch when reusability is factored in, compared to traditional expendable systems that often exceed $100 million.
+The final presentation is in [report/winning-space-race-with-data-science.pdf](report/winning-space-race-with-data-science.pdf).
 
----
+## Run it locally
 
-## 🛠️ Tech Stack
-- Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
-- Jupyter Notebooks
-- APIs & Web Scraping
-- Data Visualization Dashboards
+```bash
+pip install -r requirements.txt
 
----
+# notebooks
+jupyter lab notebooks/
 
-## 📂 Repository Structure
-Repository Files & Purpose
-File	            Purpose      
-Plotlyexample.ipynb	Demonstrates interactive visualizations using Plotly, likely for launch data dashboards.
-README.md	Project overview, objectives, methodology, insights, and conclusions.
-SpaceX_Machine Learning Prediction_Part_5.ipynb	Contains machine learning model training and evaluation for predicting Falcon 9 landing success.
-edadataviz.ipynb	Exploratory Data Analysis (EDA) and visualization of SpaceX launch data.
-jupyter-labs-eda-sql-coursera_sqllite.ipynb	SQL-based EDA using SQLite, probably part of Coursera labs.
-jupyter-labs-spacex-data-collection-api.ipynb	Collects SpaceX launch data via API calls.
-jupyter-labs-webscraping.ipynb	Scrapes SpaceX launch data from web sources.
-lab_jupyter_launch_site_location.ipynb	Analyzes launch site locations and their impact on landing success.
-labs-jupyter-spacex-Data wrangling.ipynb	Data cleaning and preparation (wrangling) for analysis.
-spacex_launch_dash.csv	Dataset used for dashboards and machine learning models.
+# dashboard → http://127.0.0.1:8050
+python dashboard/spacex_dash_app.py
+```
 
+## Tech stack
 
----
+Python · pandas · NumPy · scikit-learn · Matplotlib · Seaborn · Folium · Plotly Dash · BeautifulSoup · Requests · SQLite
 
-## 👨‍💻 Author
-Developed by **Sumant**  
-Passionate about data science, machine learning, and aerospace innovation.
+## Author
+
+**Sumant Chakravarty** · [LinkedIn](https://www.linkedin.com/in/sumant-chakravarty-b117b539/)

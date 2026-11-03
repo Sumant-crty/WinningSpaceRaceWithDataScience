@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+__pycache__/
+*.db
+dataset_part_*.csv
+spacex_web_scraped.csv
+.venv/
